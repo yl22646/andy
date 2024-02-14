@@ -1,5 +1,5 @@
 import random
-import easygui
+
 
 player_score = 0
 npc_score = 0
