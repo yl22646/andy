@@ -35,14 +35,16 @@ while player_score or npc_score < 5:
     player_choice()
     
     if play > npc_choice:
-        print(f"you win, player{player_score} - npc{npc_score}")
         player_score += 1
+        print(f"you win, player{player_score} - npc{npc_score}")
+       
     
     elif play == npc_choice:
-        print(f"you lose, player{player_score} - npc{npc_score}")
         npc_score += 1
+        print(f"you lose, player{player_score} - npc{npc_score}")
+        
 
-    else:
+    elif play < npc_choice:
         print(f"draw, player{player_score} - npc{npc_score}")
 
 if player_score == 5:
