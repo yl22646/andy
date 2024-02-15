@@ -1,4 +1,4 @@
-dict = ["a": 2,
+dict = {"a": 2,
         "B": 2,
         "c": 2,
         "d": 3,
@@ -22,7 +22,10 @@ dict = ["a": 2,
         "v": 9,
         "w": 9,
         "x": 9,
-        "z": 9,
-        ]
-
- word = input
+        "z": 9
+        }
+word_list = []               
+word = input("enter a word\n")
+word_list.append(word)
+word_list = word_list.split()
+print(word_list)
