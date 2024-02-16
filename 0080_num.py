@@ -25,7 +25,6 @@ dict = {"a": 2,
         "z": 9
         }
 word_list = []               
-word = input("enter a word\n")
-word_list.append(word)
-word_list = word_list.split()
+word_list.append(input("enter a word\n"))
+word_list.split()
 print(word_list)
