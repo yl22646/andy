@@ -2,56 +2,71 @@
 #searching for certain subject will print out the day and period you have it
 import easygui
 timetable = {"1": 
-                {" 1": "Chemistry",
-                 " 2": "Biology",
-                 " 3": "Math",
-                 " 4": "Physics",
-                 " 5": "English",
-                 " 6": "DTP"},
+                {"Period 1": "chemistry",
+                 "Period 2": "biology",
+                 "Period 3": "math",
+                 "Period 4": "physics",
+                 "Period 5": "english",
+                 "Period 6": "dtp"},
             "2":
-                {"1": "Biology",
-                 "2": "Math",
-                 "3": "Physics",
-                 "4": "English",
-                 "5": "DTP",
-                 "6": "Chemistry"},
+                {"Period 1": "biology",
+                 "Period 2": "math",
+                 "Period 3": "physics",
+                 "Period 4": "english",
+                 "Period 5": "dtp",
+                 "Period 6": "chemistry"},
             "3":
-                {"1": "Math",
-                 "2": "Physics",
-                 "3": "English",
-                 "4": "DTP",
-                 "5": "Chemistry",
-                 "6": "Biology"},                 
+                {"Period 1": "math",
+                 "Period 2": "physics",
+                 "Period 3": "english",
+                 "Period 4": "dtp",
+                 "Period 5": "chemistry",
+                 "Period 6": "biology"},                 
             "4":
-                {"1": "Physics",
-                 "2": "English",
-                 "3": "DTP",
-                 "4": "Chemistry",
-                 "5": "Biology",
-                 "6": "Math"},
+                {"Period 1": "physics",
+                 "Period 2": "english",
+                 "Period 3": "dTP",
+                 "Period 4": "chemistry",
+                 "Period 5": "biology",
+                 "Period 6": "math"},
             "5":
-                {"1": "English",
-                 "2": "DTP",
-                 "3": "Chemistry",
-                 "4": "Biology",
-                 "5": "Math",
-                 "6": "Physics"},
+                {"Period 1": "english",
+                 "Period 2": "dtp",
+                 "Period 3": "chemistry",
+                 "Period 4": "biology",
+                 "Period 5": "math",
+                 "Period 6": "physics"},
             "6":
-                {"1": "DTP",
-                 "2": "Chemistry",
-                 "3": "Biology",
-                 "4": "Math",
-                 "5": "Physics",
-                 "6": "English"},}
+                {"Period 1": "dtp",
+                 "Period 2": "chemistry",
+                 "Period 3": "biology",
+                 "Period 4": "math",
+                 "Period 5": "physics",
+                 "Period 6": "english"},}
+
+def search_day():
+   day = easygui.enterbox("Which day would you like to search for?")
+   if day in timetable:
+          schedule = '\n'.join([f"{period}: {subject}" for period , subject in timetable[day].items()])
+          easygui.msgbox(f"schedule for day {day}: \n{schedule}")
+   else:
+        easygui.msgbox(f"Sorry Day {day} does not exist")
+
+def search_subject():
+     subject = easygui.buttonbox("Which subject would you like to search for?", title="search subject", choices = ["physics", "chemistry", "dtp", "english", "biology", "math"])
+     if subject == "physics":
+          print("hi")
+
+          
+
 
 
 choice = easygui.buttonbox("Would you like to search for a day or a subject?", choices = ["day", "subject"])
 if choice == "day":
-   search_day = easygui.integerbox("Which day would you like to search for?")
-   for i in timetable:
-        if search_day == i:
-            easygui.msgbox(i)
-#    if search_day in timetable:
-#         print(timetable[search_day])
-   else:
-        easygui.msgbox(f"Sorry Day {search_day} does not exist")
+    search_day()
+
+elif choice == "subject":
+     search_subject()
+
+for perod, sub in time 
+     for  key value in sub
