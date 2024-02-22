@@ -37,6 +37,7 @@ bakery = {'Savouries':
 
 def print_menu():
     
+    
 
 choice = easygui.buttonbox("would you like the whole menu list or would you like to search through the menu", choices=["print menu", "search menu"])
 if choice == 'print menu':
