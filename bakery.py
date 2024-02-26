@@ -36,21 +36,17 @@ bakery = {'Savouries':
              'curry': '$7'}}
 
 def print_menu():
-<<<<<<< HEAD
-    for catergory, food in bakery.items():
-        for price in food:
-          easygui.msgbox(f'{catergory}:\n {price}: {food[price]}')
-=======
   menu = ''
   shop = ''
   for catergory, food in bakery.items():
     menu = ''
     for price in food:
-      menu += (f' {price}: {food[price]}')
-    shop += (f'\n{catergory} \n{menu}') 
+      menu += (f'\n{price}: {food[price]}')
+    shop += (f'\n\n{catergory} \n{menu}') 
   easygui.msgbox(f'{shop}')
 
->>>>>>> 785c00e1655f7058d06583d413f6cb1c707a8f80
+def search_menu():
+   
 
 choice = easygui.buttonbox("would you like the whole menu list or would you like to search through the menu", choices=["print menu", "search menu"])
 if choice == 'print menu':
