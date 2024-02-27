@@ -10,7 +10,7 @@ bakery = {'Savouries':
           'Sandwiches':
             {'ham and cheese': 6,
              'roast beef': 6,
-             'blt': '$7',
+             'blt': 7,
              'egg salad': 6,
              'vegetarian': 5},
           
@@ -30,10 +30,10 @@ bakery = {'Savouries':
             
           'Miscellaneous':
             {'donut': 4,
-             'stir fried rice': '$6', 
-             'tomato suace': '$4',
-             'crossant': '$4',
-             'curry': '$7'}}
+             'stir fried rice': 6, 
+             'tomato suace': 4,
+             'crossant': 4,
+             'curry': 7}}
 
 def print_menu():
   menu = ''
@@ -63,10 +63,11 @@ def search_item():
     for foods, price in food.items():
       menu.append(foods)
   cart = easygui.multchoicebox(f'bakery items', choices= menu)
-  for category, food in bakery.items():
-    for price in food:
-      print(food[price])
-      check.append(food[price])
+  for i in cart:
+    for catergory, food in bakery.items():
+      for price in food:
+        if i == price:
+          check.append(food[price])
   checkout = sum(check)
   easygui.msgbox(f'Your total is ${checkout}')
   
