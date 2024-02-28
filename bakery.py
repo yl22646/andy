@@ -41,7 +41,7 @@ def print_menu():
   for catergory, food in bakery.items():
     menu = ''
     for price in food:
-      menu += (f'\n{price}: {food[price]}')
+      menu += (f'\n{price}: ${food[price]}')
     shop += (f'\n\n{catergory} \n{menu}') 
   easygui.msgbox(f'{shop}')
 
@@ -53,7 +53,7 @@ def search_menu():
   for i, food in bakery.items():
     if i == catgor:
       for price in food:
-        menu += (f'\n{price}: {food[price]}')
+        menu += (f'\n{price}: ${food[price]}')
   easygui.msgbox(f'{catgor}: \n{menu}')
 
 def search_item():
