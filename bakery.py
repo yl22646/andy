@@ -36,6 +36,7 @@ bakery = {'Savouries':
              'curry': 7}}
 
 def print_menu():
+  '''dot string - describe function'''
   menu = ''
   shop = ''
   for catergory, food in bakery.items():

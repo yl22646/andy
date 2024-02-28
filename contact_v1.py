@@ -68,5 +68,5 @@ if choice == "day":
 elif choice == "subject":
      search_subject()
 
-for perod, sub in time 
-     for  key value in sub
+for perod, sub in time:
+     for  key value in sub:
