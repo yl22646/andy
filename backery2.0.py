@@ -17,7 +17,7 @@ while get_input != "n":
     choice = []
     # adding the value from the options to choice list
     for x in options:
-        choice.apend(x)
+        choice.append(x)
     
     selection = easygui.buttonbox(msg, title, choice)
 
