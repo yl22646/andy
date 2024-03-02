@@ -54,6 +54,7 @@ def movie_search():
                 msg_1 += (f'\n{catergory}: {movie_info[catergory]}')
     easygui.msgbox(f'{user_pick}: \n{msg_1}')
 
+
 def genre():
     genre = []
     choices = ['Sci-Fi', 'Adventure', 'Animated', 'Mystery',
@@ -66,12 +67,14 @@ def genre():
     selection = {catergory: genre}
     movie_info.update(selection)
 
+
 def release_date():
     msg = 'When was the movie released?'
     title = 'Year released'
     user_choice = easygui.integerbox(msg, title)
     selection = {catergory: user_choice}
     movie_info.update(selection)
+
 
 def rating():
     msg = "What rating would you give it out of 10?"
@@ -81,6 +84,7 @@ def rating():
     selection = {catergory: user_choice/10}
     movie_info.update(selection)
 
+
 def type():
     msg = 'Is it a movie or a Tv Series'
     title = 'Type'
@@ -88,7 +92,8 @@ def type():
     user_choice = easygui.choicebox(msg, title, option)
     selection = {catergory: user_choice}
     movie_info.update(selection)
-    
+
+
 def add_movie():
     global catergory
     global movie_info
@@ -118,8 +123,6 @@ def add_movie():
     movies.update(new_movie)
 
 
-  
-            
 def leave():
     easygui.msgbox("Goodbye")
     return "n"
@@ -130,7 +133,6 @@ options = {
     'Search movie': movie_search,
     'Add movie': add_movie,
     'Exit': leave
-    
 }
 
 get_input = "y"
