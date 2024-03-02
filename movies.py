@@ -54,8 +54,44 @@ def movie_search():
                 msg_1 += (f'\n{catergory}: {movie_info[catergory]}')
     easygui.msgbox(f'{user_pick}: \n{msg_1}')
 
+def genre():
+    genre = []
+    choices = ['Sci-Fi', 'Adventure', 'Animated', 'Mystery',
+                           'Romance', 'Drama', 'Action', 'Fantasy',
+                           'comdey', 'Crime', 'Horror', 'Thriller']
+    msg = 'What are the genres?'
+    title = 'Genres'
+    user_choice = easygui.multchoicebox(msg, title, choices)
+    genre.append(user_choice)
+    selection = {catergory: genre}
+    movie_info.update(selection)
 
+def release_date():
+    msg = 'When was the movie released?'
+    title = 'Year released'
+    user_choice = easygui.integerbox(msg, title)
+    selection = {catergory: user_choice}
+    movie_info.update(selection)
+
+def rating():
+    msg = "What rating would you give it out of 10?"
+    title = "Rating"
+    option = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    user_choice = easygui.buttonbox(msg, title, option)
+    selection = {catergory: user_choice/10}
+    movie_info.update(selection)
+
+def type():
+    msg = 'Is it a movie or a Tv Series'
+    title = 'Type'
+    option = 'Movie', 'Tv Series'
+    user_choice = easygui.choicebox(msg, title, option)
+    selection = {catergory: user_choice}
+    movie_info.update(selection)
+    
 def add_movie():
+    global catergory
+    global movie_info
     movie_info = {}
     
     message = 'What is the title of the movie?'
@@ -65,40 +101,17 @@ def add_movie():
     for movie_name, movie_detail in movies.items():
         for catergory in movie_detail:
             if catergory == 'Genre':
-                genre = []
-                choices = ['Sci-Fi', 'Adventure', 'Animated', 'Mystery',
-                           'Romance', 'Drama', 'Action', 'Fantasy',
-                           'comdey', 'Crime', 'Horror', 'Thriller']
-                msg = 'What are the genres?'
-                title = 'Genres'
-                user_choice = easygui.multchoicebox(msg, title, choices)
-                genre.append(user_choice)
-                selection = {catergory: user_choice}
-                movie_info.update(selection)
+                genre()
             
             elif catergory == 'Year released':
-                msg = 'When was the movie released?'
-                title = 'Year released'
-                user_choice = easygui.integerbox(msg, title)
-                selection = {catergory: user_choice}
-                movie_info.update(selection)
+                release_date()
             
             elif catergory == 'Rating':
-                msg = "What rating would you give it out of 10?"
-                title = "Rating"
-                option = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-                user_choice = easygui.buttonbox(msg, title, option)
-                selection = {catergory: user_choice/10}
-                movie_info.update(selection)
+                rating()
             
             elif catergory == "Type":
-                msg = 'Is it a movie or a Tv Series'
-                title = 'Type'
-                option = 'Movie', 'Tv Series'
-                user_choice = easygui.choicebox(msg, title, option)
-                selection = {catergory: user_choice}
-                movie_info.update(selection)
-    
+                type()
+                
     movie_description = (f'\n{movie_info}')
     new_movie = {movie_title: movie_description}
     easygui.msgbox(new_movie)
