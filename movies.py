@@ -5,25 +5,25 @@ movies = {
         'Genre': ['Fatnasy', 'Animated', 'Romance'],
         'Year released': '2001',
         'Rating': '7/10',
-        'Type': 'Movie'},
+        'Officebox profits': '$42M'},
     
     'Cars': {
         'Genre': ['Comedy', 'Animated', 'Adventure'],
         'Year released': '2006',
         'Rating': '7/10',
-        'Type': 'Movie'},
+        'Officebox profits': '$1.4B'},
     
     'Kunfu Panda': {
         'Genre': ['Animated', 'Adventure', 'Action'],
         'Year released': '2008',
         'Rating': '7/10',
-        'Type': 'Movie'},
+        'Officebox profits': '$60M'},
 
     'Black Panther': {
         'Genre': ['Action', 'Adventure', 'Sci-Fi'],
         'Year released': '2018',
         'Rating': '7/10',
-        'Type': 'Movie'}
+        'Officebox profits': '$2B'}
 }
 
 

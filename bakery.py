@@ -47,9 +47,11 @@ def print_menu():
   easygui.msgbox(f'{shop}')
 
 def search_menu():
-  catgor = easygui.buttonbox('which catergory would you like to look through'
+  catgor = easygui.buttonbox('''which catergory would you 
+  like to look through'''
   , title="pick catergory"
-  , choices=['Savouries', 'Sandwiches', 'Sweets', 'Drinks', 'Miscellaneous'])
+  ,choices=['Savouries', 'Sandwiches', 
+  'Sweets', 'Drinks', 'Miscellaneous'])
   menu = ''
   for i, food in bakery.items():
     if i == catgor:
