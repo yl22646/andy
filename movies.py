@@ -1,5 +1,6 @@
 import easygui
 
+# Dictionary for movies
 movies = {
     'Sherk': {
         'Genre': ['Fatnasy', 'Animated', 'Romance'],
@@ -23,15 +24,43 @@ movies = {
         'Genre': ['Action', 'Adventure', 'Sci-Fi'],
         'Year released': '2018',
         'Rating': '7/10',
-        'Officebox profits': '$2B'}
+        'Officebox profits': '$2B'},
+
+     'Sherk': {
+        'Genre': ['Fatnasy', 'Animated', 'Romance'],
+        'Year released': '2001',
+        'Rating': '7/10',
+        'Officebox profits': '$42M'},
+    
+    'Cars': {
+        'Genre': ['Comedy', 'Animated', 'Adventure'],
+        'Year released': '2006',
+        'Rating': '7/10',
+        'Officebox profits': '$1.4B'},
+    
+    'Kunfu Panda': {
+        'Genre': ['Animated', 'Adventure', 'Action'],
+        'Year released': '2008',
+        'Rating': '7/10',
+        'Officebox profits': '$60M'},
+
+    'Black Panther': {
+        'Genre': ['Action', 'Adventure', 'Sci-Fi'],
+        'Year released': '2018',
+        'Rating': '7/10',
+        'Officebox profits': '$2B'}   
 }
 
 
 
 
 def print_all():
+    '''When called this function will print all movies and it's information
+    on easygui'''
     description = ''
     msg = ''
+    #This for loop will take all values in the dictionary and add to a new list
+    #which will print neatly
     for movie_title, movie_info in movies.items():
         description = ''
         for catergory in movie_info:
@@ -41,13 +70,21 @@ def print_all():
 
 
 def movie_search():
+    '''When called this function will allow the user to pick a movie and it 
+    will print all information of that movie'''
     choices = []
+    
+    #This for loop will gather all movies in the dictionary and print out
+    #for the user to pick
     for film in movies:
         choices.append(film)
         msg = 'What movie would you like to check out?'
         title = 'All movies'
     user_pick = easygui.choicebox(msg, title, choices)
     msg_1 = ''
+    
+    #This for loop will get the movie that the user has picked and will
+    #print out the movie's information
     for movie_title, movie_info in movies.items():
         if user_pick == movie_title:
             for catergory in movie_info:
@@ -55,88 +92,22 @@ def movie_search():
     easygui.msgbox(f'{user_pick}: \n{msg_1}')
 
 
-def genre():
-    genre = []
-    choices = ['Sci-Fi', 'Adventure', 'Animated', 'Mystery',
-                           'Romance', 'Drama', 'Action', 'Fantasy',
-                           'comdey', 'Crime', 'Horror', 'Thriller']
-    msg = 'What are the genres?'
-    title = 'Genres'
-    user_choice = easygui.multchoicebox(msg, title, choices)
-    genre.append(user_choice)
-    selection = {catergory: genre}
-    movie_info.update(selection)
-
-
-def release_date():
-    msg = 'When was the movie released?'
-    title = 'Year released'
-    user_choice = easygui.integerbox(msg, title)
-    selection = {catergory: user_choice}
-    movie_info.update(selection)
-
-
-def rating():
-    msg = "What rating would you give it out of 10?"
-    title = "Rating"
-    option = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-    user_choice = easygui.buttonbox(msg, title, option)
-    selection = {catergory: user_choice/10}
-    movie_info.update(selection)
-
-
-def type():
-    msg = 'Is it a movie or a Tv Series'
-    title = 'Type'
-    option = 'Movie', 'Tv Series'
-    user_choice = easygui.choicebox(msg, title, option)
-    selection = {catergory: user_choice}
-    movie_info.update(selection)
-
-
-def add_movie():
-    global catergory
-    global movie_info
-    movie_info = {}
-    
-    message = 'What is the title of the movie?'
-    name = 'Movie title'
-    movie_title = easygui.enterbox(message, name)
-    
-    for movie_name, movie_detail in movies.items():
-        for catergory in movie_detail:
-            if catergory == 'Genre':
-                genre()
-            
-            elif catergory == 'Year released':
-                release_date()
-            
-            elif catergory == 'Rating':
-                rating()
-            
-            elif catergory == "Type":
-                type()
-                
-    movie_description = (f'\n{movie_info}')
-    new_movie = {movie_title: movie_description}
-    easygui.msgbox(new_movie)
-    movies.update(new_movie)
-
-
 def leave():
+    '''This function will exit the program when called'''
     easygui.msgbox("Goodbye")
     return "n"
     
-
+#list of actions the user is able to preform
 options = {
     'Print all': print_all,
     'Search movie': movie_search,
-    'Add movie': add_movie,
     'Exit': leave
 }
 
 get_input = "y"
 
+#This loop is the main menu which allows the user to preform actions and 
+#will call the functions
 while get_input != 'n':
     
     msg = 'What would you like to do?'
