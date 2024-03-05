@@ -23,6 +23,30 @@ movies = {
         'Genre': ['Action', 'Adventure', 'Sci-Fi'],
         'Year released': '2018',
         'Rating': '7/10',
+        'Officebox profits': '$2B'},
+    
+    'Lorax': {
+        'Genre': ['Fatnasy', 'Animated', 'Romance'],
+        'Year released': '2001',
+        'Rating': '7/10',
+        'Officebox profits': '$42M'},
+    
+    'Cars 2': {
+        'Genre': ['Comedy', 'Animated', 'Adventure'],
+        'Year released': '2006',
+        'Rating': '7/10',
+        'Officebox profits': '$1.4B'},
+    
+    'The Grinch': {
+        'Genre': ['Animated', 'Adventure', 'Action'],
+        'Year released': '2008',
+        'Rating': '7/10',
+        'Officebox profits': '$60M'},
+
+    'Thor': {
+        'Genre': ['Action', 'Adventure', 'Sci-Fi'],
+        'Year released': '2018',
+        'Rating': '7/10',
         'Officebox profits': '$2B'}
 }
 
@@ -85,13 +109,51 @@ def add_movie():
     movies[movie_title][title] = f'${officebox}M'
 
     msg = ''
-    for movie_title, movie_info in movies.items():
-        for catergory in movie_info:
-            msg += (f'\n{catergory}: {movie_info[catergory]}')
-    txt = f'{movie_title}: \n{msg} \n\n Please confirm your movie'
+    for movie_name, movie_info in movies.items():
+        if movie_name == movie_title:
+            for catergory in movie_info:
+                msg += (f'\n{catergory}: {movie_info[catergory]}')
+    txt = f'{movie_title}: \n{msg} \n\nPlease confirm your movie'
     title = ''
     choice = 'Yes', "No"
     user_pick = easygui.buttonbox(txt, title, choice)
+    #if user_pick == 'No':
+
+def delete_movie():
+    choices = []
+    for film in movies:
+        choices.append(film)
+        msg = 'Which movie would you like to delete?'
+        title = 'All movies'
+    user_pick = easygui.choicebox(msg, title, choices)
+    for movie in movies:
+        if user_pick == movie:
+            movies[movie].pop
+
+def edit():
+    output = ''
+    movie_title = []
+    movie_info = []
+
+    for title in movies:
+        movie_title.append(title)
+
+    msg = 'choose what movie you would like to eadit'
+    title = ' Edit movie'
+
+    movie_choice = easygui.choicebox(msg,title, movie_title)
+
+    for info in movies[movie_choice]:
+        movie_info.append(info)
+
+        msg = f'wwhich aspect of {movie_choice} ot edit'
+        title=''
+        edit_choice = easygui.buttonbox(msg,title,movie_info)
+        
+        msg = 'what y change it to'
+        movies[movie_choice[edit_choice]] = easygui.enterbox(msg)
+
+
 
 
 
