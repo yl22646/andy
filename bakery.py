@@ -102,22 +102,23 @@ def update():
   msg = ''
   title = ''
   for bakery_catergories in bakery:
-    catergories.append(bakery_catergories)
+    pass
+    #catergories.append(bakery_catergories)
 
-  catergory_choice = easygui.buttonbox(msg, title, catergories)
+  #catergory_choice = easygui.buttonbox(msg, title, catergories)
 
   bakery_items = []
   msg = ''
   title = ''
 
-  for items in bakery[catergory_choice]:
-    bakery_items.append(items)
+ # for items in bakery[catergory_choice]:
+#    bakery_items.append(items)
   item_choice = easygui.buttonbox(msg, title, bakery_items)
 
   msg = f'enter new price for {item_choice}'
   title = ''
 
-  bakery[catergory_choice][item_choice]
+ # bakery[catergory_choice][item_choice]
   
 choice = easygui.buttonbox('''would you like the whole menu list 
 or would you like to search through the menu?'''
