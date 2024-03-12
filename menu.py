@@ -30,5 +30,23 @@ def print_all():
         add_total = sum(total_price)
         msg += (f'\n\n{combo_name} \n{output} \n${add_total: .2f}') 
     easygui.msgbox(f'{msg}')    
-
+ 
 print_all()
+
+def movie_search():
+    '''When called this function will allow the user to pick a movie and it 
+    will print all information of that movie'''
+    choices = []
+    
+    for combo in menu:
+        choices.append(combo)
+        msg = 'What combo would you like to check out?'
+        title = 'All Combos '
+    user_pick = easygui.choicebox(msg, title, choices)
+    
+    msg = ''
+    for movie_title, movie_info in menu.items():
+        if user_pick == movie_title:
+            for catergory in movie_info:
+                msg += (f'\n{catergory}: {movie_info[catergory]}')
+    easygui.msgbox(f'{user_pick}: \n{msg}')
